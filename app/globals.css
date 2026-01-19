@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #6366f1; /* Indigo 500 */
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #ec4899; /* Pink 500 */
+  --color-accent: #8b5cf6; /* Violet 500 */
+  
+  --color-background: #ffffff;
+  --color-foreground: #0f172a; /* Slate 900 */
+  
+  --color-card: #f8fafc; /* Slate 50 */
+  --color-card-foreground: #0f172a;
+  
+  --color-muted: #f1f5f9; /* Slate 100 */
+  --color-muted-foreground: #64748b; /* Slate 500 */
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+  
+  --radius-lg: 0.75rem;
+  --radius-md: 0.5rem;
+  --radius-sm: 0.25rem;
+  
+  --animate-fade-in: fade-in 0.5s ease-out;
+  --animate-slide-up: slide-up 0.5s ease-out;
+  
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slide-up {
+    from { transform: translateY(10px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+}
+
+/* Dark Mode Overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #0f172a; /* Slate 950 */
+    --color-foreground: #f8fafc; /* Slate 50 */
+    
+    --color-card: #1e293b; /* Slate 800 */
+    --color-card-foreground: #f8fafc;
+    
+    --color-muted: #334155; /* Slate 700 */
+    --color-muted-foreground: #94a3b8; /* Slate 400 */
+  }
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Glassmorphism Utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
